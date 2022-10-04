@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/main.css" type="text/css" rel="stylesheet"/>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	// mui加载完成事件
+      	mui.plusReady(function(){
+      		// 给好友列表轻击事件
+      		mui(".mui-table-view-cell").on("tap","a",function(){
+      			// 获取好友名称
+      			var titleName = this.getAttribute("title");
+      			console.log("titleName:"+titleName);
+      			// 打开聊天页面
+      			mui.openWindow({
+      				url:"sub1/chat.html",
+      				id:"sub1/chat.html",
+      				extras:{
+      					name:titleName
+      				},
+      				show:{
+      					autoShow:true, // 页面加载后打开
+      					aniShow:"slide-in-right", //网页显示动画
+      					duration:100 //页面动画持续时间
+      				},
+      				waiting:{
+      					autoShow:true,
+      					title:"正在加载...."
+      				}
+      			});
+      		});
+      	});
+      	</script>
+	<!--头部-->
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">微信</h1>
+	</header>
+	<!--主体   -->
+	<div class="mui-content">
+	    <ul class="mui-table-view">
+	        <li class="mui-table-view-cell mui-media">
+	            <a href="javascript:;" title="梦幻通灵">
+	                <img class="mui-media-object mui-pull-left" src="img/1.jpg">
+	                <div class="mui-media-body">
+	                    	梦幻通灵
+	                    <p class="mui-ellipsis">海到无边天作岸，山登绝顶我为峰</p>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="mui-table-view-cell mui-media">
+	            <a href="javascript:;" title="健康乐活">
+	                <img class="mui-media-object mui-pull-left" src="img/2.jpg">
+	                <div class="mui-media-body">
+	                    健康乐活
+	                    <p class="mui-ellipsis">用心甘情愿的态度，过随遇而安的生活</p>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="mui-table-view-cell mui-media">
+	            <a href="javascript:;" title="感恩的心">
+	                <img class="mui-media-object mui-pull-left" src="img/3.jpg">
+	                <div class="mui-media-body">
+	                    感恩的心
+	                    <p class="mui-ellipsis">用辛勤的汗水滋养理想之花</p>
+	                </div>
+	            </a>
+	        </li>
+	        <li class="mui-table-view-cell mui-media">
+	            <a href="javascript:;" title="我和我的国">
+	                <img class="mui-media-object mui-pull-left" src="img/4.jpg">
+	                <div class="mui-media-body">
+	                    我和我的国
+	                    <p class="mui-ellipsis">腹有诗书气自华</p>
+	                </div>
+	            </a>
+	        </li>
+	    </ul>
+	</body>
+
+</html>

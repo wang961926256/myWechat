@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/main.css" type="text/css" rel="stylesheet"/>
+		<style type="text/css">
+			.mui-table-view-cell{
+				line-height:30px;
+				font-size: 18px;
+			}
+			.mui-table-view-cell img{
+				width="30px";
+				height="30px";
+			}
+		</style>
+	</head>
+
+	<!--头部-->
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">微信</h1>
+	</header>
+	<body>
+
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		mui.plusReady(function(){
+			// 给朋友圈添加轻击事件
+			var friends = document.getElementById("friends");
+			friends.addEventListener("tap",function(){
+				// 打开聊天页面
+      			mui.openWindow({
+      				url:"sub3/fdHeader.html",
+      				id:"sub3/fdHeader.html"
+      			});
+			});
+		});
+	</script>
+	<!--主体   -->
+	<div class="mui-content"> 
+			<div class="mui-content">
+			<ul class="mui-table-view">
+					
+					<li id="friends" class="mui-table-view-cell mui-left" >
+						<img src="img/afp.png"  align="absmiddle">&nbsp;朋友圈
+					</li>
+				</ul>
+				<br />
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-left" >
+						<img src="img/afs.png"  align="absmiddle">&nbsp;扫一扫
+					</li>
+					<li class="mui-table-view-cell mui-left" >
+						<img src="img/afy.png"  align="absmiddle">&nbsp;摇一摇
+					</li>
+				</ul>
+				<br />
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-left" >
+						<img src="img/afg.png"  align="absmiddle">&nbsp;购物
+					</li>
+					<li class="mui-table-view-cell mui-left" >
+						<img src="img/afyx.png"  align="absmiddle">&nbsp;游戏
+					</li>
+				</ul>
+	    </div>
+	</body>
+
+</html>

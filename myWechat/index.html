@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/main.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+	   <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	// mui加载完成事件
+      	mui.plusReady(function(){
+      		// 定义子页面的数组
+      		var subPages = ["sub1.html","sub2.html","sub3.html","sub4.html"];
+      		// 定义显示样式
+      		var subPagesStyle = {
+      			top:"44px",
+      			bottom:"50px"
+      		};
+      		// 获取主webview
+      		var mainView = plus.webview.currentWebview();
+      		// 根据每个子页面的url创建webview
+      		for(var i=0;i<subPages.length;i++){
+      			var url = subPages[i];
+      			// 根绝url创建每个子页面，返回webview对象
+      			// plus.webview.create(url,id,style);
+      			// 参数1 url 指定页面生成webview
+      			// 参数2 id 给每个web页面起名标识符，方便控制
+      			// 参数3 style 设置样式
+      			var subView = plus.webview.create(url,url,subPagesStyle);
+      			// 默认将每个webview设置为隐藏状态
+      			subView.hide();
+      			// 将子webview加入到主webview
+      			mainView.append(subPages);
+      		}
+      		// 默认设置sub1.html显示
+      		plus.webview.show(subPages[0]);
+      		
+      		// 给每个导航栏目注册模拟用户的轻击事件
+      		// mui(html元素的父选择器).on(事件名，注册时间的html元素选择器，时间);
+      		// 参数1 事件名 用户的轻击事件，对click、onclick等网页事件无效
+      		mui(".mui-bar-tab").on("tap","a",function(){
+      			// 获取当前数据源显示
+      			var id = this.getAttribute("href");
+      			// 设置当前导航对应子页面显示，根据指定id设置webView显示
+      			plus.webview.show(id)
+      		});
+      	});
+    </script>
+	</div>
+	<!-- 底部选项卡-->
+	<nav class="mui-bar mui-bar-tab">
+	    <a class="mui-tab-item mui-active" href="sub1.html">
+	        <span class="mui-icon mui-icon-chatbubble"></span>
+	        <span class="mui-tab-label">微信</span>
+	    </a>
+	    <a class="mui-tab-item" href="sub2.html">
+	        <span class="mui-icon mui-icon-contact"></span>
+	        <span class="mui-tab-label">通讯录</span>
+	    </a>
+	    <a class="mui-tab-item" href="sub3.html">
+	        <span class="mui-icon mui-icon-navigate"></span>
+	        <span class="mui-tab-label">发现</span>
+	    </a>
+	    <a class="mui-tab-item" href="sub4.html">
+	        <span class="mui-icon mui-icon-person"></span>
+	        <span class="mui-tab-label">我</span>
+	    </a>
+	</nav>
+</body>
+</html>
